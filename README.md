@@ -1,6 +1,6 @@
 # Student Performance Prediction
 ## Implementation
-- **Trained Model:** .
+- **Dependencies:** 
 - ** Environment Setup**
 ## Project Directories
 Here is an overview of the project's directory structure
