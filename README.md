@@ -1,6 +1,6 @@
 # Student Performance Prediction
 ## Implementation
-- **Trained Model:** The model is stored as `model.h5`.
+- **Trained Model:** .
 - ** Environment Setup**
 ## Project Directories
 Here is an overview of the project's directory structure
