@@ -6,6 +6,8 @@
 Here is an overview of the project's directory structure
 ```
 ```
+## Usage Instructions
+## Features
 ## Model details
 ## Tech Stack used
 ## Credits and Acknowledgement
@@ -13,3 +15,4 @@ Here is an overview of the project's directory structure
 ## Future Improvements
 ## Contact Information
 ## output
+## Demo
