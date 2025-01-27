@@ -3,20 +3,20 @@ from dataclasses import dataclass
 
 import numpy as np 
 import pandas as pd
-from sklearn.compose import ColumnTransformer
-from sklearn.impute import SimpleImputer
-from sklearn.pipeline import Pipeline
+from sklearn.compose import ColumnTransformer # To create in the form of pipeline
+from sklearn.impute import SimpleImputer # For missing values
+from sklearn.pipeline import Pipeline 
 from sklearn.preprocessing import OneHotEncoder,StandardScaler
 
-from src.exception import CustomException
+from src.exception import CustomException # for exceptions handling
 from src.logger import logging
 import os
 
 from src.utils import save_object
 
 @dataclass
-class DataTransformationConfig:
-    preprocessor_obj_file_path=os.path.join('artifacts',"proprocessor.pkl")
+class DataTransformationConfig: # To get the data as input
+    preprocessor_obj_file_path=os.path.join('artifacts',"preprocessor.pkl")
 
 class DataTransformation:
     def __init__(self):
@@ -24,7 +24,7 @@ class DataTransformation:
 
     def get_data_transformer_object(self):
         '''
-        This function si responsible for data trnasformation
+        This function is responsible for data transformation
         
         '''
         try:
