@@ -15,8 +15,18 @@ The objective is not only to predict scores but also to gain insights into the f
 * catboost
 * xgboost
 * dill
+* flask
 
 **Environment Setup**
+1. Create a virtual Environment: conda create -p venv python==2.11 -y || python -m venv environ_name
+2. Activate the virtual environment: environ_name\Scripts\Activate
+3. Use this command to install the libraries: pip install -r requiements.txt
+4. If you'r using your device, install ipykernel and run then run the notebook files.
+5. Then have a look at modular coding used for data ingestion, transformation, model training and prediction pipelines
+6. Then run python src/components/data_ingestion.py, it will create files such model.pkl, preprocessor.pkl, train and test-csv
+7. In the terminal navigate to your project directory and hit the command to run the app: python app.py
+8. Open the browser and search for 127.0.0.1:5000/predictdata
+9. 
 ## Project Directories
 Here is an overview of the project's directory structure
 ```
