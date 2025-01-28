@@ -30,6 +30,32 @@ The objective is not only to predict scores but also to gain insights into the f
 ## Project Directories
 Here is an overview of the project's directory structure
 ```
+student-performance-prediction/
+├── notebooks/                  # Jupyter notebooks for data exploration and analysis
+│   └── EDA Student performance.ipynb  # Jupyter notebook for initial data exploration
+|   └── Model Training.ipynb 
+├── data/                      # Directory containing the dataset(s)
+│   └── student_data.csv        # Example CSV file with student data
+│
+├── src/                        # Source code for the project
+│    └──components
+|           ├── __init__.py             # Initialize the source code module
+│           ├── data_ingestion.py   
+│           ├── data_transformation.py  
+│           ├── model_trainer.py               # Code for training the machine learning models
+│     └──pipeline
+|           ├── __init__.py             
+│           ├── prediction_pipeline.py
+│    └──__init__.py
+│    └──exception.py
+│    └──logger.py
+│    └──utils.py
+├── templates/                        
+│    └──home.html
+├── requirements.txt            # List of required Python dependencies
+├── README.md                   # Project documentation (this file)
+└── app.py.py           
+
 ```
 ## Usage Instructions
 ## Features
