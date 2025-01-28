@@ -66,4 +66,5 @@ student-performance-prediction/
 ## Future Improvements
 ## Contact Information
 ## output
+![App Screenshot](https://github.com/allu0786ansari/Student_Performance_Prediction/blob/main/output/predicted_output.png)
 ## Demo
