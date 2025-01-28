@@ -7,11 +7,14 @@ The objective is not only to predict scores but also to gain insights into the f
 
 ## Implementation
 - **Dependencies:**
-pandas: For data manipulation and analysis.
-scikit-learn: For building machine learning models and performing model evaluation.
-matplotlib: For creating visualizations and charts.
-seaborn: For statistical data visualization.
-numpy: For numerical computing and working with arrays
+* pandas: For data manipulation and analysis.
+* scikit-learn: For building machine learning models and performing model evaluation.
+* matplotlib: For creating visualizations and charts.
+* seaborn: For statistical data visualization.
+* numpy: For numerical computing and working with arrays
+* catboost
+* xgboost
+* dill
 
 - **Environment Setup**
 ## Project Directories
