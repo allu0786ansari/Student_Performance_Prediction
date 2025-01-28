@@ -1,6 +1,6 @@
+from dataclasses import dataclass
 import os
 import sys
-from dataclasses import dataclass
 
 from catboost import CatBoostRegressor
 from sklearn.ensemble import (
@@ -15,7 +15,7 @@ from sklearn.tree import DecisionTreeRegressor
 
 from src.exception import CustomException
 from src.logger import logging
-from src.utils import save_object, evaluate_models
+from src.utils import save_object
 
 
 @dataclass
@@ -76,19 +76,14 @@ class ModelTrainer:
             }
 
             # Evaluate models
-            model_report: dict = evaluate_models(
-                X_train=X_train,
-                y_train=y_train,
-                X_test=X_test,
-                y_test=y_test,
-                models=models,
-                param=params,
+            model_report, best_model_instance = self.evaluate_models(
+                X_train, y_train, X_test, y_test, models, params
             )
 
             # Find the best model
             best_model_score = max(model_report.values())
             best_model_name = max(model_report, key=model_report.get)
-            best_model = models[best_model_name]
+            best_model = best_model_instance[best_model_name]
 
             if best_model_score < 0.6:
                 raise CustomException("No suitable model found with acceptable performance", sys)
@@ -109,30 +104,38 @@ class ModelTrainer:
         except Exception as e:
             raise CustomException(e, sys)
 
+    @staticmethod
+    def evaluate_models(X_train, y_train, X_test, y_test, models, param):
+        try:
+            model_report = {}
+            fitted_models = {}
+            for model_name, model in models.items():
+                try:
+                    logging.info(f"Training {model_name}")
+                    if isinstance(model, LinearRegression):  # Linear Regression special handling
+                        model.fit(X_train, y_train)  # Explicitly fit Linear Regression
+                        y_pred = model.predict(X_test)
+                        model_report[model_name] = r2_score(y_test, y_pred)
+                        fitted_models[model_name] = model
+                    elif isinstance(model, CatBoostRegressor):  # CatBoost special handling
+                        model.fit(X_train, y_train)
+                        y_pred = model.predict(X_test)
+                        model_report[model_name] = r2_score(y_test, y_pred)
+                        fitted_models[model_name] = model
+                    else:
+                        gs = GridSearchCV(
+                            model, param.get(model_name, {}), cv=3, n_jobs=-1, scoring="r2"
+                        )
+                        gs.fit(X_train, y_train)
+                        best_model = gs.best_estimator_
+                        y_pred = best_model.predict(X_test)
+                        model_report[model_name] = r2_score(y_test, y_pred)
+                        fitted_models[model_name] = best_model
+                except Exception as model_exception:
+                    logging.error(f"Error in training {model_name}: {model_exception}")
+                    raise CustomException(model_exception, sys)
 
-def evaluate_models(X_train, y_train, X_test, y_test, models, param):
-    try:
-        model_report = {}
-        for model_name, model in models.items():
-            try:
-                logging.info(f"Training {model_name}")
-                if isinstance(model, CatBoostRegressor):  # CatBoost special handling
-                    model.fit(X_train, y_train)
-                    y_pred = model.predict(X_test)
-                    model_report[model_name] = r2_score(y_test, y_pred)
-                else:
-                    gs = GridSearchCV(
-                        model, param.get(model_name, {}), cv=3, n_jobs=-1, scoring="r2"
-                    )
-                    gs.fit(X_train, y_train)
-                    best_model = gs.best_estimator_
-                    y_pred = best_model.predict(X_test)
-                    model_report[model_name] = r2_score(y_test, y_pred)
-            except Exception as model_exception:
-                logging.error(f"Error in training {model_name}: {model_exception}")
-                raise CustomException(model_exception, sys)
+            return model_report, fitted_models
 
-        return model_report
-
-    except Exception as e:
-        raise CustomException(e, sys)
+        except Exception as e:
+            raise CustomException(e, sys)
