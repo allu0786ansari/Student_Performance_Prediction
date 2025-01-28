@@ -6,7 +6,7 @@ The project uses machine learning techniques to analyze historical student data 
 The objective is not only to predict scores but also to gain insights into the factors that most influence academic success, ultimately contributing to improving educational strategies and outcomes.
 
 ## Implementation
-- **Dependencies:**
+**Dependencies:**
 * pandas: For data manipulation and analysis.
 * scikit-learn: For building machine learning models and performing model evaluation.
 * matplotlib: For creating visualizations and charts.
@@ -16,7 +16,7 @@ The objective is not only to predict scores but also to gain insights into the f
 * xgboost
 * dill
 
-- **Environment Setup**
+**Environment Setup**
 ## Project Directories
 Here is an overview of the project's directory structure
 ```
