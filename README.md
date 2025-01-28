@@ -61,7 +61,30 @@ student-performance-prediction/
 ## Features
 ## Model details
 ## Tech Stack used
-## Credits and Acknowledgement
+## Credits and Acknowledgements
+
+This project would not have been possible without the guidance, tools, and resources provided by the following:
+
+- **Guidance and Support:**
+  - Krish Naik: for project guidance and support.
+  - ----------- Name for providing a platform and resources for development.
+
+- **Tools and Libraries:**
+  - [Scikit-learn](https://scikit-learn.org/) for data preprocessing, linear regression model and  evaluation.
+  - [Pandas](https://pandas.pydata.org/) and [NumPy](https://numpy.org/) for data manipulation and analysis.
+  - [Matplotlib](https://matplotlib.org/) and [Seaborn](https://seaborn.pydata.org/) for visualization.
+
+- **Dataset:**  
+  - The dataset used in this project, `student.csv`, was sourced from [Kaggle](https://www.kaggle.com/).
+
+- **Community and Tutorials:**  
+  - Special thanks to the Python and data science community for sharing valuable tutorials and insights.
+  - [GitHub](https://github.com/) for version control and collaboration.
+
+---
+
+**Acknowledgement:**  
+This project is a result of collaborative learning and the application of knowledge from various online resources, courses, and tutorials. Thank you to everyone who contributed directly or indirectly to its success.
 ## dataset
 ## Future Improvements
 ## Contact Information
