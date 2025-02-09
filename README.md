@@ -17,7 +17,7 @@ The objective is not only to predict scores but also to gain insights into the f
 * dill
 * flask
 
-**Environment Setup**
+**Environ Setup**
 1. Create a virtual Environment: conda create -p venv python==2.11 -y || python -m venv environ_name
 2. Activate the virtual environment: environ_name\Scripts\Activate
 3. Use this command to install the libraries: pip install -r requiements.txt
